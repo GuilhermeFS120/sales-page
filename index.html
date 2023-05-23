@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-theme="yellow">
+<html lang="pt-br" data-theme="grey-orange">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,18 +7,39 @@
         <title>Página de vendas</title>
         <link rel="stylesheet" href="./style.css" />
     </head>
-    <body>
+    <body oncontextmenu="return false">
         <div id="watching"></div>
-        <section class="plr">
-            <header class="copy">
-                <h1 class="title">Título</h1>
-                <p class="subtitle">COPY - Texto Persuasivo</p>
-            </header>
-            <video controls class="vsl">
+        <header class="copy">
+            <h1 class="title">Título</h1>
+            <p class="subtitle">COPY - Texto Persuasivo</p>
+        </header>
+        <div class="vsl" id="vsl">
+            <video>
                 <source src="./assets/vsl.mp4" type="video/mp4" />
             </video>
-            <a href="#" class="buy-now active"> Compre Agora! </a>
-        </section>
+            <div class="preloader" id="preloader">
+                <i class="bx bx-loader-alt"></i>
+            </div>
+            <div class="thumbnail-overlay active">
+                <div class="thumbnail">
+                    <i class="bx bx-play"></i>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="progress-bar">
+                    <div class="loader" id="loader"></div>
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="play btn">
+                    <i class="bx bx-play"></i>
+                </div>
+                <div class="time">00:00 | 00:00</div>
+                <div class="screen btn" id="fullScreen">
+                    <i class="bx bx-fullscreen"></i>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="buy-now" id="btnBuy">Garanta o Seu!</a>
         <footer>
             <p class="copyright">
                 Guilherme Silva - © 2023 Todos os direitos reservados.
@@ -32,6 +53,7 @@
                 <a href="#">Política de Privacidade</a>
             </div>
         </footer>
-        <script src="./script.js"></script>
+        <script src="./dist/script.dev.js"></script>
+        <script src="./video-controls.js"></script>
     </body>
 </html>

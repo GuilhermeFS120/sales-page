@@ -1,5 +1,5 @@
-@import "https://fonts.googleapis.com/css2?family=DM+Sans&family=Inter&family=Luxurious+Script&family=Orbitron&family=Poppins&family=Quicksand&family=Raleway&family=Roboto&display=swap";
-@import "https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css";
+@import 'https://fonts.googleapis.com/css2?family=DM+Sans&family=Inter&family=Luxurious+Script&family=Orbitron&family=Poppins&family=Quicksand&family=Raleway&family=Roboto&display=swap';
+@import 'https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css';
 
 * {
     margin: 0;
@@ -8,11 +8,60 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html[data-theme='yellow'] {
+html[data-theme='grey-yellow'] {
     --bg-color: #202020;
     --alt-bg: #333533;
-    --btn-color: #FFD100;
-    --font-color: #D6D6D6;
+    --alt-color: #ffd100;
+    --alt-color-2: #ffee32;
+    --font-color: white;
+}
+
+html[data-theme='dark-red'] {
+    --bg-color: black;
+    --alt-bg: #3d0000;
+    --alt-color: #950101;
+    --alt-color-2: red;
+    --font-color: white;
+}
+
+html[data-theme='grey-orange'] {
+    --bg-color: #222831;
+    --alt-bg: #393e46;
+    --alt-color: #fd7014;
+    --alt-color-2: #fd7014;
+    --font-color: white;
+}
+
+html[data-theme='dark-pink'] {
+    --bg-color: black;
+    --alt-bg: #86003c;
+    --alt-color: #e41f7b;
+    --alt-color-2: #ff8ba0;
+    --font-color: white;
+}
+
+html[data-theme='grey-blue'] {
+    --bg-color: #222831;
+    --alt-bg: #393e46;
+    --alt-color: #00adb5;
+    --alt-color-2: #00fff5;
+    --font-color: white;
+}
+
+html[data-theme='dark-purple'] {
+    --bg-color: black;
+    --alt-bg: #3e065f;
+    --alt-color: #700b97;
+    --alt-color-2: #8e05c2;
+    --font-color: white;
+}
+
+html[data-theme='gray'] {
+    --bg-color: #2a2438;
+    --alt-bg: #352f44;
+    --alt-color: #5c5470;
+    --alt-color-2: #dbd8e3;
+    --font-color: white;
 }
 
 body {
@@ -30,9 +79,9 @@ body {
 #watching {
     display: grid;
     place-items: center;
-    width:  100%;
+    width: 100%;
     height: 3rem;
-    background: hsl(0, 50%, 50%);
+    background: var(--alt-color);
     color: white;
 }
 
@@ -40,22 +89,14 @@ body {
     font-size: 1rem;
     text-align: center;
     line-height: 100%;
-}
-
-.plr {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 100%;
-    gap: 2rem;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .copy {
     display: grid;
     place-items: center;
     width: 100%;
-    margin-top: 2.5rem;
+    margin: 2rem 0;
 }
 
 .title {
@@ -70,9 +111,10 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem 0 2rem;
+    margin: 2.5rem 0;
     font-size: 1.5rem;
-    background: var(--btn-color);
+    background: var(--alt-color);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
     border-radius: 1rem;
     text-decoration: none;
     color: white;
@@ -84,21 +126,196 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
-    visibility: hidden;
+    opacity: 0;
     pointer-events: none;
 }
 
 .buy-now.active {
-    visibility: visible;
+    opacity: 1;
     pointer-events: auto;
 }
 
-.vsl {
+.buy-now:hover {
+    background: var(--alt-color-2);
+}
+
+#vsl {
     aspect-ratio: 16 / 9;
     margin: 0 2rem;
     width: 90%;
     max-width: 60rem;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 16px 8px var(--alt-color);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+#vsl video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    cursor: pointer;
+}
+
+#vsl .preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    place-items: center;
+}
+
+#vsl .preloader.active {
+    display: grid;
+}
+
+#vsl .preloader i {
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    padding-top: 2px;
+}
+
+#vsl .preloader.active i {
+    animation: loading 0.5s linear infinite;
+}
+
+#vsl .controls {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    background: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    transform: translateY(2.5rem);
+}
+
+#vsl .controls.active {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#vsl .controls .progress-bar {
+    width: 100%;
+    height: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#vsl .controls.active .progress-bar {
+    height: 0.3rem;
+}
+
+#vsl .progress-bar > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+#vsl .progress-bar .loader {
+    width: 0%;
+    background: rgba(200, 200, 200, 0.5);
+}
+
+#vsl .progress-bar .progress {
+    width: 0%;
+    background: var(--alt-color);
+}
+
+#vsl .progress-bar .progress::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    aspect-ratio: 1 / 1;
+    height: 0%;
+    background: inherit;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#vsl .progress-bar:hover .progress::after {
+    height: 300%;
+}
+
+#vsl .controls .btn {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1;
+    width: 2.5rem;
+    margin: 0 5px;
+    cursor: pointer;
+    float: left;
+    font-size: 2rem;
+    transition: none;
+}
+
+.btn .hide {
+    display: none;
+}
+
+#vsl .controls .screen {
+    float: right;
+}
+
+#vsl .controls .time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: default;
+    font-size: 0.9rem;
+    float: left;
+}
+
+#vsl .thumbnail-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.7) inset;
+    cursor: pointer;
+}
+
+#vsl .thumbnail-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#vsl .thumbnail-overlay .thumbnail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--alt-color);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    width: 8rem;
+    display: grid;
+    place-items: center;
+    border: 10px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#vsl .thumbnail-overlay .thumbnail i {
+    font-size: 6rem;
+    margin-left: 10px;
 }
 
 footer {
@@ -139,4 +356,13 @@ footer p {
 
 .links a:hover {
     opacity: 1;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
 }
