@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Luxurious+Script&family=Orbitron&family=Poppins&family=Quicksand&family=Raleway&display=swap');
+@import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
+@import url('https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css');
+
+body .swiper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+body .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    padding: 2rem 3rem;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+body .swiper-slide .content {
+    margin-top: 3rem;
+    position: relative;
+    width: 100%;
+    color: white;
+    background: var(--alt-bg);
+    padding: 0 1em 2em;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+body .swiper-slide .content .imgBox {
+    aspect-ratio: 1/1;
+    width: 8rem;
+    border-radius: 50%;
+    border: 8px solid var(--bg-color);
+    display: grid;
+    place-items: center;
+    margin-top: -3rem;
+    background: var(--alt-bg);
+}
+body .swiper-slide .content .imgBox img {
+    position: absolute;
+    inset: 0 auto auto 0;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+body .swiper-slide .content .imgBox i {
+    font-size: 5rem;
+    text-align: center;
+    color: white;
+}
+body .swiper-slide .content .name {
+    padding: 8px 0;
+    text-transform: capitalize;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+}
+body .swiper-slide .content p {
+    margin-top: 15px;
+    color: var(--font-color);
+    padding: 0 8px;
+    font-size: 15px;
+}
+body .swiper-slide .content p .left {
+    display: block;
+    font-size: 30px;
+    text-align: left;
+    color: var(--alt-color);
+}
+body .swiper-slide .content p .right {
+    color: var(--alt-color);
+    display: block;
+    font-size: 30px;
+    text-align: right;
+}
+body .swiper-button-next,
+body .swiper-button-prev {
+    color: var(--alt-color);
+}
+body .swiper-pagination-bullet-active {
+    background: var(--alt-color);
+} /*# sourceMappingURL=testimonial-2.css.map */
