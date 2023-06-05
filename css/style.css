@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', 'Poppins', sans-serif;
 }
 
 html[data-theme='grey-yellow'] {
@@ -361,6 +361,82 @@ footer p {
 
 .links a:hover {
     opacity: 1;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.presell {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--alt-bg);
+    width: 100%;
+    height: 15rem;
+}
+
+.presell h2 {
+    font-size: 20px;
+}
+
+.presell p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.presell a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--font-color);
+    background: var(--alt-color);
+    display: grid;
+    place-items: center;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.outer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 2rem 0;
+    display: grid;
+    place-items: center;
+    opacity: 0.7;
+}
+
+.outer p:first-child {
+    margin-bottom: 0.7rem;
+}
+
+.outer p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.outer .links {
+    padding: 0.3rem;
 }
 
 @keyframes loading {
